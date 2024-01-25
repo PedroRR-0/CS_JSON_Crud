@@ -18,7 +18,9 @@ namespace JsonCRUD
 
         public bool SaveJsonToDisk()
         {
-            string fileName = @"c:\youtube\c#\jsonCRUD\data\mydata.json";
+            string directorio = AppDomain.CurrentDomain.BaseDirectory;
+            string nombre = "mydata.json";
+            string fileName = Path.Combine(directorio, nombre);
 
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(friendsOfMine);
 
@@ -43,8 +45,9 @@ namespace JsonCRUD
 
         public void LoadJsonFromDisk()
         {
-
-            string fileName = @"c:\youtube\c#\jsonCRUD\data\mydata.json";
+            string directorio = AppDomain.CurrentDomain.BaseDirectory;
+            string nombre = "mydata.json";
+            string fileName = Path.Combine(directorio, nombre);
             if (File.Exists(fileName)==true)
             {
                 var list = JsonConvert.DeserializeObject<List<Crm>>
